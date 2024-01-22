@@ -1,0 +1,51 @@
+﻿<Properties StartupConfiguration="{B4AB6234-792E-474D-A7DE-FBAEF459697A}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/abolfazl/Desktop/capsell/capsell/backend/Capsell/Capsell/Controllers/AuthenticateController.cs" relfile="Capsell/Controllers/AuthenticateController.cs" line="123" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Capsell PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Capsell/DataProvide/CompaniesProduct.cs">
+    <Files>
+      <File FileName="Capsell/Controllers/OrderController.cs" />
+      <File FileName="Capsell/Repositories/Orders/IOrderRepo.cs" />
+      <File FileName="Capsell/Repositories/Orders/OrderRepo.cs" />
+      <File FileName="Capsell/Services/Orders/OrderService.cs" />
+      <File FileName="Capsell/Repositories/Products/IProductRepo.cs" />
+      <File FileName="Capsell/DataProvide/Product.cs" />
+      <File FileName="Capsell/DataProvide/Shop.cs" />
+      <File FileName="Capsell/DataProvide/Order.cs" />
+      <File FileName="Capsell/DataProvide/ShopOrder.cs" />
+      <File FileName="Capsell/DataProvide/Cart.cs" />
+      <File FileName="Capsell/DataProvide/CapsellDbContext.cs" />
+      <File FileName="Capsell/Services/Shops/ShopService.cs" />
+      <File FileName="Capsell/DataProvide/CompaniesProduct.cs" Line="10" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Capsell">
+            <Node name="Capsell" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="DataProvide" expanded="True">
+                <Node name="CompaniesProduct.cs" selected="True" />
+              </Node>
+              <Node name="Models" expanded="True">
+                <Node name="Orders" expanded="True" />
+              </Node>
+              <Node name="Repositories" expanded="True">
+                <Node name="Products" expanded="True" />
+              </Node>
+              <Node name="Services" expanded="True">
+                <Node name="Shops" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+</Properties>
