@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/abolfazl/Desktop/capsell/capsell/backend/Capsell/Capsell.Test/Capsell.Test.csproj": {}
+    "/Users/abolfazl/Documents/projects/capsell/backend/Capsell/Capsell.Test/Capsell.Test.csproj": {}
   },
   "projects": {
-    "/Users/abolfazl/Desktop/capsell/capsell/backend/Capsell/Capsell.Test/Capsell.Test.csproj": {
+    "/Users/abolfazl/Documents/projects/capsell/backend/Capsell/Capsell.Test/Capsell.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/abolfazl/Desktop/capsell/capsell/backend/Capsell/Capsell.Test/Capsell.Test.csproj",
+        "projectUniqueName": "/Users/abolfazl/Documents/projects/capsell/backend/Capsell/Capsell.Test/Capsell.Test.csproj",
         "projectName": "Capsell.Test",
-        "projectPath": "/Users/abolfazl/Desktop/capsell/capsell/backend/Capsell/Capsell.Test/Capsell.Test.csproj",
+        "projectPath": "/Users/abolfazl/Documents/projects/capsell/backend/Capsell/Capsell.Test/Capsell.Test.csproj",
         "packagesPath": "/Users/abolfazl/.nuget/packages/",
-        "outputPath": "/Users/abolfazl/Desktop/capsell/capsell/backend/Capsell/Capsell.Test/obj/",
+        "outputPath": "/Users/abolfazl/Documents/projects/capsell/backend/Capsell/Capsell.Test/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/abolfazl/.nuget/NuGet/NuGet.Config"
@@ -41,6 +41,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.1.0, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.7.17, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -75,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.310/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.312/RuntimeIdentifierGraph.json"
         }
       }
     }

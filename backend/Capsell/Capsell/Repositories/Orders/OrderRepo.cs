@@ -25,7 +25,8 @@ namespace Capsell.Repositories.Orders
                 {
                     ProductId = dto.ProductId,
                     Count = dto.Count,
-                    UserId = dto.UserId
+                    UserId = dto.UserId,
+                    ShopId = dto.ShopId
                 };
 
                 await _context.Carts.AddAsync(cartItem);
@@ -55,7 +56,8 @@ namespace Capsell.Repositories.Orders
                                        ProductName = product.Name,
                                        Count = cartItem.Count,
                                        BaseFee = product.Price,
-                                       Price = (cartItem.Count * product.Price).ToString()
+                                       Price = (cartItem.Count * product.Price).ToString(),
+                                       ShopId = product.ShopId
                                    }).ToListAsync();
                 if (items != null)
                     return items;
@@ -79,6 +81,7 @@ namespace Capsell.Repositories.Orders
                     UserId = dto.UserId,
                     Products = dto.ProductsItems,
                     TotalPrice = dto.TotalPrice,
+                    ShopId = dto.ShopId
                 };
 
                 await _context.Orders.AddAsync(order);

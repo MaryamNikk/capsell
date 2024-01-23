@@ -1,6 +1,13 @@
 using Capsell.DataProvide;
 using Capsell.Repositories.Authenticate;
+using Capsell.Repositories.Orders;
+using Capsell.Repositories.Products;
+using Capsell.Repositories.Shops;
 using Capsell.Services.Authenticate;
+using Capsell.Services.Cache;
+using Capsell.Services.Orders;
+using Capsell.Services.Products;
+using Capsell.Services.Shops;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -13,7 +20,7 @@ ConfigurationManager configuration = builder.Configuration;
 
 var logger = new LoggerConfiguration()
     .ReadFrom.Configuration(configuration)
-    .Enrich.FromLogContext()
+.Enrich.FromLogContext()
     .CreateLogger();
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
@@ -27,6 +34,15 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 
 builder.Services.AddScoped<IRegisterationRepo, RegisterationRepo>();
 builder.Services.AddScoped<IRegisterationService, RegisterationService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductRepo, ProductRepo>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IOrderRepo, OrderRepo>();
+builder.Services.AddScoped<IShopService, ShopService>();
+builder.Services.AddScoped<IShopRepo, ShopRepo>();
+builder.Services.AddScoped<ICacheService, CacheService>();
+
+
 
 
 

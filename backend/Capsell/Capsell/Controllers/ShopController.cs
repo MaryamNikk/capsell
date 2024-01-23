@@ -44,7 +44,7 @@ namespace Capsell.Controllers
         }
 
         [HttpGet]
-        [Route("GetTwoProducts")]
+        [Route("GetTwoShops")]
         public async Task<IActionResult> GetTwoProducts()
         {
             try

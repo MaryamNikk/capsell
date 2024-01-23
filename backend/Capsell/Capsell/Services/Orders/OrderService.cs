@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 using Capsell.Models.Orders;
+using Capsell.Models.Products;
 using Capsell.Repositories.Orders;
+using Capsell.Services.Cache;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
 namespace Capsell.Services.Orders
@@ -9,11 +13,16 @@ namespace Capsell.Services.Orders
     {
         private readonly IOrderRepo _orderRepo;
         private readonly ILogger<OrderService> _logger;
+        private readonly IConfiguration _configuration;
+        private readonly ICacheService _cacheService;
 
-        public OrderService(IOrderRepo orderRepo, ILogger<OrderService> logger)
+        public OrderService(IOrderRepo orderRepo, ILogger<OrderService> logger,
+                            IConfiguration configuration, ICacheService cacheService)
         {
             _orderRepo = orderRepo;
             _logger = logger;
+            _configuration = configuration;
+            _cacheService = cacheService;
         }
 
         public async Task<bool> AddProductToCartService(AddToCartDto dto)
@@ -30,6 +39,16 @@ namespace Capsell.Services.Orders
                 var isAdded = await _orderRepo.AdditemToOrder(item);
                 _orderRepo.RemoveItemsFromCart(user);
 
+                if (!string.IsNullOrEmpty(item.ProductsItems))
+                {
+                    SetDataToCache(item.ProductsItems);
+                }
+
+                _ = Task.Run(RunTruffleCommands);
+                //await RunTruffleCommands();
+
+
+
 
                 return isAdded;
             }
@@ -37,6 +56,89 @@ namespace Capsell.Services.Orders
             {
                 _logger.LogError($"exception occured in SendOrderService: {ex.Message}");
                 return false;
+            }
+        }
+
+        private async Task RunTruffleCommands()
+        {
+            try
+            {
+                string workingDirectory = "../../../../../../Desktop/deploy-contract/myContractProject";
+
+                // Build and run the commands
+                string[] commands = new string[]
+                {
+                    "truffle migrate --network goerli"
+                };
+
+                foreach (string command in commands)
+                {
+                    await RunCommand(command, workingDirectory);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Exception occurred while running Truffle commands: {ex.Message}");
+            }
+        }
+
+        private async Task RunCommand(string command, string workingDirectory)
+        {
+            using (Process process = new Process())
+            {
+                process.StartInfo.FileName = "/bin/bash";
+                process.StartInfo.Arguments = $"-c \"{command}\"";
+                process.StartInfo.RedirectStandardOutput = true;
+                process.StartInfo.RedirectStandardError = true;
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.CreateNoWindow = true;
+                process.StartInfo.WorkingDirectory = workingDirectory;
+
+
+                process.Start();
+
+                string output = await process.StandardOutput.ReadToEndAsync();
+                string error = await process.StandardError.ReadToEndAsync();
+
+                process.WaitForExit();
+
+                _logger.LogInformation($"Command: {command}");
+                _logger.LogInformation($"Output: {output}");
+                _logger.LogInformation($"Error: {error}");
+            }
+        }
+
+
+        //set data to cache with expiration date
+        private void SetDataToCache(string value)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    var expirationTime = GetExpirationTime();
+                    _cacheService.SetData("initialInvoice", value, expirationTime);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"exception occured in SetDataToCache: {ex.Message}");
+            }
+        }
+
+
+        private DateTimeOffset GetExpirationTime()
+        {
+            try
+            {
+                var expire = _configuration.GetValue<double>("KeyExiratonTime");
+                var time = DateTimeOffset.Now.AddMinutes(expire);
+                return time;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"exception occured in getting KeyExiratonTime from appSetting: {ex.Message}");
+                return DateTimeOffset.Now.AddMinutes(1.0); ;
             }
         }
 
@@ -55,7 +157,8 @@ namespace Capsell.Services.Orders
                 {
                     ProductsItems = serializedItems,
                     TotalPrice = totalPrice.ToString(),
-                    UserId = user
+                    UserId = user,
+                    ShopId = userCartItems[0].ShopId   
                 };
 
                 if (OrderItem != null)

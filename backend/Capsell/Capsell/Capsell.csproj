@@ -29,6 +29,7 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.0" />
+    <PackageReference Include="StackExchange.Redis" Version="2.7.17" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +50,7 @@
     <None Remove="Services\Orders\" />
     <None Remove="Models\Orders\" />
     <None Remove="Repositories\Orders\" />
+    <None Remove="Services\Cache\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -68,5 +70,6 @@
     <Folder Include="Services\Orders\" />
     <Folder Include="Models\Orders\" />
     <Folder Include="Repositories\Orders\" />
+    <Folder Include="Services\Cache\" />
   </ItemGroup>
 </Project>

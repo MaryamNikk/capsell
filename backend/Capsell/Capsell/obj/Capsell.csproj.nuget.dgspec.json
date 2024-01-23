@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/abolfazl/Desktop/capsell/capsell/backend/Capsell/Capsell/Capsell.csproj": {}
+    "/Users/abolfazl/Documents/projects/capsell/backend/Capsell/Capsell/Capsell.csproj": {}
   },
   "projects": {
-    "/Users/abolfazl/Desktop/capsell/capsell/backend/Capsell/Capsell/Capsell.csproj": {
+    "/Users/abolfazl/Documents/projects/capsell/backend/Capsell/Capsell/Capsell.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/abolfazl/Desktop/capsell/capsell/backend/Capsell/Capsell/Capsell.csproj",
+        "projectUniqueName": "/Users/abolfazl/Documents/projects/capsell/backend/Capsell/Capsell/Capsell.csproj",
         "projectName": "Capsell",
-        "projectPath": "/Users/abolfazl/Desktop/capsell/capsell/backend/Capsell/Capsell/Capsell.csproj",
+        "projectPath": "/Users/abolfazl/Documents/projects/capsell/backend/Capsell/Capsell/Capsell.csproj",
         "packagesPath": "/Users/abolfazl/.nuget/packages/",
-        "outputPath": "/Users/abolfazl/Desktop/capsell/capsell/backend/Capsell/Capsell/obj/",
+        "outputPath": "/Users/abolfazl/Documents/projects/capsell/backend/Capsell/Capsell/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/abolfazl/.nuget/NuGet/NuGet.Config"
@@ -20,7 +20,7 @@
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/sdk/7.0.310/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "/usr/local/share/dotnet/sdk/7.0.312/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -95,6 +95,10 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.7.17, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -119,7 +123,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.310/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.312/RuntimeIdentifierGraph.json"
         }
       }
     }

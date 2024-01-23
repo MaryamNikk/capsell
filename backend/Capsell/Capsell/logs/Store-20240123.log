@@ -1,0 +1,189 @@
+2024-01-23 16:59:29.853 +03:30  INF  User profile is available. Using '/Users/abolfazl/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-01-23 16:59:30.112 +03:30  INF  Now listening on: https://localhost:7097
+2024-01-23 16:59:30.112 +03:30  INF  Now listening on: http://localhost:5097
+2024-01-23 16:59:30.113 +03:30  INF  Application started. Press Ctrl+C to shut down.
+2024-01-23 16:59:30.113 +03:30  INF  Hosting environment: Development
+2024-01-23 16:59:30.113 +03:30  INF  Content root path: /Users/abolfazl/Documents/projects/capsell/backend/Capsell/Capsell
+2024-01-23 16:59:32.496 +03:30  INF  Request starting HTTP/1.1 GET https://localhost:7097/swagger/index.html - -
+2024-01-23 16:59:32.579 +03:30  INF  Request finished HTTP/1.1 GET https://localhost:7097/swagger/index.html - - - 200 - text/html;charset=utf-8 85.0312ms
+2024-01-23 16:59:32.783 +03:30  INF  Request starting HTTP/1.1 GET https://localhost:7097/swagger/v1/swagger.json - -
+2024-01-23 16:59:32.827 +03:30  INF  Request finished HTTP/1.1 GET https://localhost:7097/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 44.1076ms
+2024-01-23 16:59:50.561 +03:30  INF  Request starting HTTP/1.1 POST https://localhost:7097/api/Order/AddToCart application/json 101
+2024-01-23 16:59:50.587 +03:30  INF  CORS policy execution successful.
+2024-01-23 16:59:50.589 +03:30  INF  Executing endpoint 'Capsell.Controllers.OrderController.AddProductToCart (Capsell)'
+2024-01-23 16:59:50.609 +03:30  INF  Route matched with {action = "AddProductToCart", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddProductToCart(Capsell.Models.Orders.AddToCartDto) on controller Capsell.Controllers.OrderController (Capsell).
+2024-01-23 16:59:51.244 +03:30  INF  Entity Framework Core 6.0.1 initialized 'CapsellDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.1' with options: None
+2024-01-23 16:59:51.515 +03:30  INF  Executed DbCommand (34ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Cart] ([Count], [productId], [shopId], [userId])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [id]
+FROM [Cart]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-01-23 16:59:51.539 +03:30  INF  user: d9a59dbc-3691-47e6-98fb-b086f3769991 add product to cart
+2024-01-23 16:59:51.541 +03:30  INF  Executing OkObjectResult, writing value of type 'System.Boolean'.
+2024-01-23 16:59:51.545 +03:30  INF  Executed action Capsell.Controllers.OrderController.AddProductToCart (Capsell) in 934.8351ms
+2024-01-23 16:59:51.545 +03:30  INF  Executed endpoint 'Capsell.Controllers.OrderController.AddProductToCart (Capsell)'
+2024-01-23 16:59:51.547 +03:30  INF  Request finished HTTP/1.1 POST https://localhost:7097/api/Order/AddToCart application/json 101 - 200 - application/json;+charset=utf-8 987.6668ms
+2024-01-23 16:59:58.166 +03:30  INF  Request starting HTTP/1.1 POST https://localhost:7097/api/Order/SendOrder/d9a59dbc-3691-47e6-98fb-b086f3769991 - 0
+2024-01-23 16:59:58.170 +03:30  INF  CORS policy execution successful.
+2024-01-23 16:59:58.171 +03:30  INF  Executing endpoint 'Capsell.Controllers.OrderController.SendOrder (Capsell)'
+2024-01-23 16:59:58.177 +03:30  INF  Route matched with {action = "SendOrder", controller = "Order"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SendOrder(System.String) on controller Capsell.Controllers.OrderController (Capsell).
+2024-01-23 16:59:58.330 +03:30  INF  Entity Framework Core 6.0.1 initialized 'CapsellDbContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.1' with options: None
+2024-01-23 16:59:58.431 +03:30  INF  Executed DbCommand (9ms) [Parameters=[@__user_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[id] AS [ProductId], [p].[name] AS [ProductName], [c].[Count], [p].[price] AS [BaseFee], CONVERT(varchar(20), CAST([c].[Count] AS bigint) * [p].[price]) AS [Price], [p].[shopId] AS [ShopId]
+FROM [Cart] AS [c]
+INNER JOIN [Product] AS [p] ON [c].[productId] = [p].[id]
+WHERE [c].[userId] = @__user_0
+2024-01-23 16:59:58.480 +03:30  INF  Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Order] ([products], [shopId], [totalPrice], [userId])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [id]
+FROM [Order]
+WHERE @@ROWCOUNT = 1 AND [id] = scope_identity();
+2024-01-23 16:59:58.496 +03:30  INF  Executed DbCommand (3ms) [Parameters=[@__user_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[id], [c].[Count], [c].[productId], [c].[shopId], [c].[userId]
+FROM [Cart] AS [c]
+WHERE [c].[userId] = @__user_0
+2024-01-23 16:59:58.511 +03:30  INF  Executed DbCommand (7ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [Cart]
+WHERE [id] = @p0;
+SELECT @@ROWCOUNT;
+2024-01-23 16:59:58.523 +03:30  INF  user: d9a59dbc-3691-47e6-98fb-b086f3769991 send an order
+2024-01-23 16:59:58.523 +03:30  INF  Executing OkObjectResult, writing value of type 'System.Boolean'.
+2024-01-23 16:59:58.523 +03:30  INF  Executed action Capsell.Controllers.OrderController.SendOrder (Capsell) in 345.8726ms
+2024-01-23 16:59:58.523 +03:30  INF  Executed endpoint 'Capsell.Controllers.OrderController.SendOrder (Capsell)'
+2024-01-23 16:59:58.523 +03:30  INF  Request finished HTTP/1.1 POST https://localhost:7097/api/Order/SendOrder/d9a59dbc-3691-47e6-98fb-b086f3769991 - 0 - 200 - application/json;+charset=utf-8 356.6727ms
+2024-01-23 17:02:49.588 +03:30  INF  Command: truffle migrate --network goerli
+2024-01-23 17:02:49.589 +03:30  INF  Output: 
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+Migrations dry-run (simulation)
+===============================
+> Network name:    'goerli-fork'
+> Network id:      5
+> Block gas limit: 30000000 (0x1c9c380)
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'DynamicJsonContract'
+   -------------------------------
+   > block number:        10420823
+   > block timestamp:     1706016636
+   > account:             0x85DD3838bA0dfdd608B64E8D25026B7F826118a2
+   > balance:             0.130176697486263683
+   > gas used:            443107 (0x6c2e3)
+   > gas price:           2.500000009 gwei
+   > value sent:          0 ETH
+   > total cost:          0.001107767503987963 ETH
+
+   -------------------------------------
+   > Total cost:     0.001107767503987963 ETH
+
+Summary
+=======
+> Total deployments:   1
+> Final cost:          0.001107767503987963 ETH
+
+
+
+
+Starting migrations...
+======================
+> Network name:    'goerli'
+> Network id:      5
+> Block gas limit: 30000000 (0x1c9c380)
+
+
+2_deploy_contracts.js
+=====================
+
+   Deploying 'DynamicJsonContract'
+   -------------------------------
+UnhandledRejections detected
+Promise {
+  <rejected> ClientClosedError: The client is closed
+      at Commander._RedisClient_sendCommand (/Users/abolfazl/node_modules/@redis/client/dist/lib/client/index.js:511:31)
+      at Commander.commandsExecutor (/Users/abolfazl/node_modules/@redis/client/dist/lib/client/index.js:190:154)
+      at Commander.BaseClass.<computed> [as get] (/Users/abolfazl/node_modules/@redis/client/dist/lib/commander.js:8:29)
+      at /Users/abolfazl/Desktop/deploy-contract/myContractProject/migrations/2_deploy_contracts.js:8:13
+      at Script.runInContext (node:vm:135:12)
+      at Object.file (/usr/local/lib/node_modules/truffle/build/webpack:/packages/require/dist/index.js:90:1)
+      at Migration.<anonymous> (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/dist/src/Migration.js:78:1)
+      at Generator.next (<anonymous>)
+      at fulfilled (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/dist/src/Migration.js:28:43)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+} ClientClosedError: The client is closed
+    at Commander._RedisClient_sendCommand (/Users/abolfazl/node_modules/@redis/client/dist/lib/client/index.js:511:31)
+    at Commander.commandsExecutor (/Users/abolfazl/node_modules/@redis/client/dist/lib/client/index.js:190:154)
+    at Commander.BaseClass.<computed> [as get] (/Users/abolfazl/node_modules/@redis/client/dist/lib/commander.js:8:29)
+    at /Users/abolfazl/Desktop/deploy-contract/myContractProject/migrations/2_deploy_contracts.js:8:13
+    at Script.runInContext (node:vm:135:12)
+    at Object.file (/usr/local/lib/node_modules/truffle/build/webpack:/packages/require/dist/index.js:90:1)
+    at Migration.<anonymous> (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/dist/src/Migration.js:78:1)
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/dist/src/Migration.js:28:43)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+Promise {
+  <rejected> ClientClosedError: The client is closed
+      at Commander._RedisClient_sendCommand (/Users/abolfazl/node_modules/@redis/client/dist/lib/client/index.js:511:31)
+      at Commander.commandsExecutor (/Users/abolfazl/node_modules/@redis/client/dist/lib/client/index.js:190:154)
+      at Commander.BaseClass.<computed> [as get] (/Users/abolfazl/node_modules/@redis/client/dist/lib/commander.js:8:29)
+      at /Users/abolfazl/Desktop/deploy-contract/myContractProject/migrations/2_deploy_contracts.js:8:13
+      at Script.runInContext (node:vm:135:12)
+      at Object.file (/usr/local/lib/node_modules/truffle/build/webpack:/packages/require/dist/index.js:90:1)
+      at Migration.<anonymous> (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/dist/src/Migration.js:78:1)
+      at Generator.next (<anonymous>)
+      at fulfilled (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/dist/src/Migration.js:28:43)
+      at processTicksAndRejections (node:internal/process/task_queues:95:5)
+} ClientClosedError: The client is closed
+    at Commander._RedisClient_sendCommand (/Users/abolfazl/node_modules/@redis/client/dist/lib/client/index.js:511:31)
+    at Commander.commandsExecutor (/Users/abolfazl/node_modules/@redis/client/dist/lib/client/index.js:190:154)
+    at Commander.BaseClass.<computed> [as get] (/Users/abolfazl/node_modules/@redis/client/dist/lib/commander.js:8:29)
+    at /Users/abolfazl/Desktop/deploy-contract/myContractProject/migrations/2_deploy_contracts.js:8:13
+    at Script.runInContext (node:vm:135:12)
+    at Object.file (/usr/local/lib/node_modules/truffle/build/webpack:/packages/require/dist/index.js:90:1)
+    at Migration.<anonymous> (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/dist/src/Migration.js:78:1)
+    at Generator.next (<anonymous>)
+    at fulfilled (/usr/local/lib/node_modules/truffle/build/webpack:/packages/migrate/dist/src/Migration.js:28:43)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+2024-01-23 17:02:49.590 +03:30  INF  Error: No data found in the cache. Please save data to cache first.
+No data found in the cache. Please save data to cache first.
+Error: Unhandled error. ({
+  code: -32603,
+  message: 'ESOCKETTIMEDOUT',
+  data: { originalError: { code: 'ESOCKETTIMEDOUT', connect: false } }
+})
+    at new NodeError (node:internal/errors:405:5)
+    at Web3ProviderEngine.emit (node:events:503:17)
+    at /Users/abolfazl/node_modules/web3-provider-engine/index.js:54:14
+    at afterRequest (/Users/abolfazl/node_modules/web3-provider-engine/index.js:148:21)
+    at /Users/abolfazl/node_modules/web3-provider-engine/index.js:174:21
+    at /Users/abolfazl/node_modules/web3-provider-engine/index.js:232:9
+    at /Users/abolfazl/node_modules/async/internal/once.js:12:16
+    at replenish (/Users/abolfazl/node_modules/async/internal/eachOfLimit.js:61:25)
+    at /Users/abolfazl/node_modules/async/internal/eachOfLimit.js:71:9
+    at eachLimit (/Users/abolfazl/node_modules/async/eachLimit.js:43:36)
+    at /Users/abolfazl/node_modules/async/internal/doLimit.js:9:16
+    at end (/Users/abolfazl/node_modules/web3-provider-engine/index.js:211:5)
+    at Request._callback (/Users/abolfazl/node_modules/web3-provider-engine/subproviders/rpc.js:36:21)
+    at self.callback (/Users/abolfazl/node_modules/request/request.js:185:22)
+    at Request.emit (node:events:514:28)
+    at ClientRequest.<anonymous> (/Users/abolfazl/node_modules/request/request.js:819:16)
+    at Object.onceWrapper (node:events:628:28)
+    at ClientRequest.emit (node:events:514:28)
+    at TLSSocket.emitRequestTimeout (node:_http_client:847:9)
+    at Object.onceWrapper (node:events:628:28)
+    at TLSSocket.emit (node:events:526:35)
+    at TLSSocket.Socket._onTimeout (node:net:571:8)
+    at listOnTimeout (node:internal/timers:569:17)
+    at processTimers (node:internal/timers:512:7)
+
