@@ -1,51 +1,42 @@
 ﻿<Properties StartupConfiguration="{B4AB6234-792E-474D-A7DE-FBAEF459697A}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/abolfazl/Desktop/capsell/capsell/backend/Capsell/Capsell/Controllers/AuthenticateController.cs" relfile="Capsell/Controllers/AuthenticateController.cs" line="123" column="1" />
-    </BreakpointStore>
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.Capsell PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Capsell/DataProvide/CompaniesProduct.cs">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Capsell/appsettings.json">
     <Files>
-      <File FileName="Capsell/Controllers/OrderController.cs" />
-      <File FileName="Capsell/Repositories/Orders/IOrderRepo.cs" />
-      <File FileName="Capsell/Repositories/Orders/OrderRepo.cs" />
-      <File FileName="Capsell/Services/Orders/OrderService.cs" />
+      <File FileName="Capsell/Controllers/OrderController.cs" Line="51" Column="1" />
+      <File FileName="Capsell/Services/Orders/OrderService.cs" Line="76" Column="33" />
       <File FileName="Capsell/Repositories/Products/IProductRepo.cs" />
       <File FileName="Capsell/DataProvide/Product.cs" />
       <File FileName="Capsell/DataProvide/Shop.cs" />
-      <File FileName="Capsell/DataProvide/Order.cs" />
       <File FileName="Capsell/DataProvide/ShopOrder.cs" />
       <File FileName="Capsell/DataProvide/Cart.cs" />
-      <File FileName="Capsell/DataProvide/CapsellDbContext.cs" />
       <File FileName="Capsell/Services/Shops/ShopService.cs" />
-      <File FileName="Capsell/DataProvide/CompaniesProduct.cs" Line="10" Column="1" />
+      <File FileName="Capsell/DataProvide/CompaniesProduct.cs" />
+      <File FileName="Capsell/Services/Shops/IShopService.cs" />
+      <File FileName="Capsell/Controllers/ShopController.cs" />
+      <File FileName="Capsell/Repositories/Orders/OrderRepo.cs" Line="112" Column="1" />
+      <File FileName="Capsell/Controllers/AuthenticateController.cs" Line="101" Column="51" />
+      <File FileName="Capsell/DataProvide/Order.cs" Line="17" Column="1" />
+      <File FileName="Capsell/DataProvide/CapsellDbContext.cs" Line="1" Column="1" />
+      <File FileName="Capsell/appsettings.json" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Capsell">
-            <Node name="Capsell" expanded="True">
-              <Node name="Controllers" expanded="True" />
-              <Node name="DataProvide" expanded="True">
-                <Node name="CompaniesProduct.cs" selected="True" />
-              </Node>
-              <Node name="Models" expanded="True">
-                <Node name="Orders" expanded="True" />
-              </Node>
-              <Node name="Repositories" expanded="True">
-                <Node name="Products" expanded="True" />
-              </Node>
-              <Node name="Services" expanded="True">
-                <Node name="Shops" expanded="True" />
-              </Node>
+          <Node name="Capsell" expanded="True">
+            <Node name="Capsell">
+              <Node name="DataProvide" expanded="True" />
+              <Node name="appsettings.json" selected="True" />
             </Node>
+            <Node name="Capsell.Test" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
 </Properties>

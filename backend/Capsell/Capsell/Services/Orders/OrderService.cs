@@ -47,9 +47,6 @@ namespace Capsell.Services.Orders
                 _ = Task.Run(RunTruffleCommands);
                 //await RunTruffleCommands();
 
-
-
-
                 return isAdded;
             }
             catch (Exception ex)

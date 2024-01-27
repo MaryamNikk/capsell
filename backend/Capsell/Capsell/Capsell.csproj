@@ -51,6 +51,9 @@
     <None Remove="Models\Orders\" />
     <None Remove="Repositories\Orders\" />
     <None Remove="Services\Cache\" />
+    <None Remove="Models\Company\" />
+    <None Remove="Services\Comapny\" />
+    <None Remove="Repositories\Companies\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -71,5 +74,8 @@
     <Folder Include="Models\Orders\" />
     <Folder Include="Repositories\Orders\" />
     <Folder Include="Services\Cache\" />
+    <Folder Include="Models\Company\" />
+    <Folder Include="Services\Comapny\" />
+    <Folder Include="Repositories\Companies\" />
   </ItemGroup>
 </Project>
