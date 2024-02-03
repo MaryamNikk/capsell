@@ -6,10 +6,9 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Capsell/appsettings.json">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Capsell.Test/OrderTest.cs">
     <Files>
-      <File FileName="Capsell/Controllers/OrderController.cs" Line="51" Column="1" />
-      <File FileName="Capsell/Services/Orders/OrderService.cs" Line="76" Column="33" />
+      <File FileName="Capsell/Controllers/OrderController.cs" />
       <File FileName="Capsell/Repositories/Products/IProductRepo.cs" />
       <File FileName="Capsell/DataProvide/Product.cs" />
       <File FileName="Capsell/DataProvide/Shop.cs" />
@@ -19,22 +18,37 @@
       <File FileName="Capsell/DataProvide/CompaniesProduct.cs" />
       <File FileName="Capsell/Services/Shops/IShopService.cs" />
       <File FileName="Capsell/Controllers/ShopController.cs" />
-      <File FileName="Capsell/Repositories/Orders/OrderRepo.cs" Line="112" Column="1" />
-      <File FileName="Capsell/Controllers/AuthenticateController.cs" Line="101" Column="51" />
-      <File FileName="Capsell/DataProvide/Order.cs" Line="17" Column="1" />
-      <File FileName="Capsell/DataProvide/CapsellDbContext.cs" Line="1" Column="1" />
+      <File FileName="Capsell/Repositories/Orders/OrderRepo.cs" />
+      <File FileName="Capsell/Controllers/AuthenticateController.cs" />
+      <File FileName="Capsell/DataProvide/Order.cs" />
+      <File FileName="Capsell/DataProvide/CapsellDbContext.cs" />
       <File FileName="Capsell/appsettings.json" Line="1" Column="1" />
+      <File FileName="Capsell/Repositories/Authenticate/RegisterationRepo.cs" Line="51" Column="19" />
+      <File FileName="Capsell.Test/OrderTest.cs" Line="31" Column="28" />
+      <File FileName="Capsell/Models/Orders/ProductItemModel.cs" Line="4" Column="31" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Capsell" expanded="True">
-            <Node name="Capsell">
-              <Node name="DataProvide" expanded="True" />
-              <Node name="appsettings.json" selected="True" />
+          <Node name="Capsell">
+            <Node name="Capsell" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Orders" expanded="True" />
+              </Node>
+              <Node name="Services" expanded="True">
+                <Node name="Orders" expanded="True" />
+              </Node>
             </Node>
-            <Node name="Capsell.Test" expanded="True" />
+            <Node name="Capsell.Test" expanded="True">
+              <Node name="OrderTest.cs" selected="True" />
+            </Node>
           </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Capsell" selected="True" />
         </State>
       </Pad>
     </Pads>
